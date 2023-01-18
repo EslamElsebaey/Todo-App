@@ -93,7 +93,7 @@ function createTask (){
                 tasks.push(taskObj) ;
                 showTasks()
                 showDeleteAllBtn ()
-                alertify.success('تم اضافة المهمة بنجاح' , 3); 
+                alertify.success('تم اضافة المهمة بنجاح' ,2.5); 
             }
         }
          }
@@ -118,7 +118,7 @@ function deleteTask(taskId) {
             showTasks()
             localStorage.setItem("tasks" , JSON.stringify(tasks)) ;
             showDeleteAllBtn () ;
-            alertify.success('تم الحذف بنجاح' , 3);
+            alertify.success('تم الحذف بنجاح' ,2.5);
     }, function(){});
 }
 
@@ -145,7 +145,7 @@ function updateTask (taskId){
                 tasks = [...tasks] ;
                 showTasks()
                 localStorage.setItem("tasks" , JSON.stringify(tasks)) ;
-                alertify.success('تم تعديل المهمة بنجاح' , 3);
+                alertify.success('تم تعديل المهمة بنجاح' ,2.5);
         }
          }
     , function() {});
@@ -163,9 +163,9 @@ function toggleTaskCompletion(taskId){
     })
     doneTask[0].isDone  = !doneTask[0].isDone ;
     if(doneTask[0].isDone){
-        alertify.success('تم انجاز المهمة' , 3);
+        alertify.success('تم انجاز المهمة' ,2.5);
     }else{
-        alertify.success('تم الرجوع عن المهمة' , 3);
+        alertify.success('تم الرجوع عن المهمة' ,2.5);
     }
      tasks = [...tasks] ;
      showTasks()
@@ -183,6 +183,6 @@ function deleteAllTasks() {
         tasks.length = 0 ; 
         showTasks();
         showDeleteAllBtn() ;
-        alertify.success('تم الحذف بنجاح' , 3);
+        alertify.success('تم الحذف بنجاح' ,2.5);
     }, function(){});
 }
