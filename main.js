@@ -1,5 +1,7 @@
 
-
+ alertify.defaults.glossary.ok = 'موافق';
+ alertify.defaults.glossary.cancel = 'إلغاء';
+ 
 let tasks ; 
 
 if( localStorage.getItem("tasks") == null ){
