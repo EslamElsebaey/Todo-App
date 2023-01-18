@@ -1,0 +1,204 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #eaf7ff;
+    font-family: 'Tajawal', sans-serif !important;
+}
+.alertify .ajs-footer .ajs-buttons.ajs-primary .ajs-button , .alertify .ajs-footer .ajs-buttons.ajs-primary .ajs-button, .alertify input {
+    font-family: 'Tajawal', sans-serif;
+}
+.alertify input { 
+    font-size: 18px;
+}
+.alertify .ajs-header{
+    font-family: 'Tajawal', sans-serif;
+}
+.alertify .ajs-body .ajs-content .ajs-input{
+    font-family: 'Tajawal', sans-serif;
+}
+.alertify .ajs-body .ajs-content p{
+    margin-bottom: 10px;
+}
+.alertify .ajs-footer .ajs-buttons.ajs-primary button {
+    background-color: #F0F0F0;
+    cursor: pointer;
+}
+.tasks-table{
+    width: 60%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    max-width: 100%;
+    margin: 120px  auto 100px auto;
+    background-color: rgb(239, 239, 239);
+    /* background-color: #eaf7ff; */
+}
+.container{
+    padding: 0 20px;
+}
+.tasks-div{
+    padding: 20px;
+}
+.deleteAll-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.date-sec{
+    direction: ltr;
+}
+
+/*  top header */
+.top-header{
+    width: 100%;
+    text-align: center;
+    background-color: #2192FF;
+    background-color: #0081C9;
+    color: #fff;
+    padding: 8px 0;
+    position: relative;
+}
+.add-btn{
+    position: absolute;
+    inset-inline-start: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fff;
+}
+.circle-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.add-btn i {
+    font-size: 15px;
+}
+/*  end of top header */
+
+/* tasks section */
+/* .tasks{
+    padding: 20px;
+} */
+
+.task-actions{
+    display: flex;
+    align-items: center;
+    margin-left: 80px;
+}
+
+.task{
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    justify-content: space-between;
+    transition: all linear .2s;
+    margin-bottom: 10px;
+}
+.doneTask {
+    background-color: rgb(158, 253, 160);
+    /* background-color: rgba(91,189,114,.95); */
+}
+
+.task:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.task button {
+    margin-right: 40px;
+    display: inline-block;
+    color: #fff;
+}
+.task button:first-of-type{
+    margin-right: 0;
+}
+.task button i {
+    font-size: 15px;
+}
+.delete-btn{
+    background-color: rgb(114, 0, 0);
+}
+.update-btn{
+    background-color: rgba(0, 16, 197 , 0.692);
+}
+.done-btn {
+    background-color:  rgb(0, 150, 30);
+}
+.notDoneBtn{
+    background-color: rgb(118, 0, 101);
+}
+.deleteAll{
+    display: inline-block;
+    background-color: rgb(114, 0, 0);
+    border: none;
+    outline: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 3px;
+    font-family: inherit;
+    font-size: 17px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.noTasks{
+    color:  rgb(114, 0, 0);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.addHere{
+    position: static;
+    transform: translateY(0);
+    margin-right: 15px;
+}
+
+.alertify-notifier.ajs-right .ajs-message.ajs-visible{
+    left: 268px;
+}
+
+
+@media screen and (max-width : 992px) {
+    .task-actions {
+        margin-left: 0;
+    }
+    .tasks-table{
+        width: 70%;
+        max-width: 100%;
+    }
+   
+}
+
+@media screen and (max-width : 768px) {
+    .tasks-table{
+        width: 100%;
+        margin: 50px auto;
+    }
+    .top-header h1 {
+        font-size: 22px;
+    }
+    .noTasks{
+        font-size: 16px;
+    }
+    .tasks-div{
+        padding: 20px 10px;
+    }
+    .task-info{
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .task{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .deleteAll{
+        padding: 8px 20px;
+    }
+   
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.rtl.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.rtl.min.css"/>
+    <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.rtl.min.css"/> -->
+    <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.rtl.min.css"/> -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>مهامى</title>
+</head>
+<body>
+
+<!-- Modal -->
+
+<!-- End of Modal -->
+
+<div class="main">
+    <div class="container">
+           <!-- tasks table -->
+           <div class="tasks-table">
+            <div class="top-header">
+                <h1>مهامى</h1>
+                <button title="اضافة" class="add-btn circle-btn">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
+            <div class="tasks-div">
+                <div class="tasks">
+               
+
+            
+                </div>
+                <div class="deleteAll-div">
+                    <button onclick="deleteAllTasks()" class="deleteAll">حذف الجميع</button>
+                </div>
+                <h3 class="noTasks">  لا يوجد مهام .. اضف مهمة جديدة    
+                     <button title="اضافة" onclick="createTask()" class="add-btn circle-btn addHere">
+                        <i class="fa-solid fa-plus"></i>
+                    </button> 
+                </h3>
+                
+            </div>
+         
+        </div>
+         <!-- end of tasks table -->
+    </div>
+     
+</div>
+    
+
+
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+<script>
+    alertify.defaults.glossary.ok = 'موافق';
+    alertify.defaults.glossary.cancel = 'إلغاء';
+</script>
+
+<script src="main.js"></script>
+</body>
+</html>
