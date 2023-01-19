@@ -1,6 +1,11 @@
 
- alertify.defaults.glossary.ok = 'موافق';
- alertify.defaults.glossary.cancel = 'إلغاء';
+
+if(document.querySelector("html").dir == "rtl"){
+    alertify.defaults.glossary.ok = 'موافق';
+    alertify.defaults.glossary.cancel = 'إلغاء';
+}
+
+
  
 let tasks ; 
 
@@ -74,13 +79,21 @@ function showTasks (){
 // create Task
 
 function createTask (){
-    
-    alertify.prompt( 'مهمة جديدة', ' الرجاء ادخال مهمة جديدة', ''
-    , function(evt, value) {
-        document.querySelector(".ajs-ok").innerHTML = "نعم" ;
-    document.querySelector(".ajs-cancel").innerHTML = "الغاء" ;
+    alertify.prompt( document.querySelector("html").dir == "rtl" ? 'مهمة جديدة' : "New task",  document.querySelector("html").dir == "rtl" ? ' الرجاء ادخال مهمة جديدة' : "please, enter new task name", ''
+    , function(evt , value) {
         if(value == "") {
-            alertify.alert('تنبيه','يجب ان تدخل اسم المهمة');
+            if( document.querySelector("html").dir == "rtl"){
+                alertify.alert('تنبيه','يجب ان تدخل اسم المهمة');
+            }else{
+                alertify.alert('Alert','You should enter the task name');
+            }
+           
+        }else if (!isNaN(value)){
+            if( document.querySelector("html").dir == "rtl"){
+                alertify.alert('تنبيه','لا يجب ان يكون اسم المهمة عبارة عن ارقام فقط ');
+            }else{
+                alertify.alert('Alert','The task name should not be numbers only');
+            }
         }else{
             let taskTitle =  value;
             let date = new Date() ;
@@ -95,7 +108,7 @@ function createTask (){
                 tasks.push(taskObj) ;
                 showTasks()
                 showDeleteAllBtn ()
-                alertify.success('تم اضافة المهمة بنجاح' ,2.5); 
+                alertify.success( document.querySelector("html").dir == "rtl" ?  'تم اضافة المهمة بنجاح' : "Task added successfully" ,2.5); 
             }
         }
          }
@@ -112,7 +125,8 @@ document.querySelector(".add-btn").addEventListener("click" , createTask)
 
 function deleteTask(taskId) {
 
-    alertify.confirm('حذف مهمة ', ' هل انت متأكد انك تريد حذف المهمة  ؟', function(){
+    alertify.confirm(  document.querySelector("html").dir == "rtl" ?   'حذف مهمة ' : "delete task", 
+    document.querySelector("html").dir == "rtl" ?   ' هل انت متأكد انك تريد حذف المهمة  ؟' : "Are you sure you want to delete this task?", function(){
         let newTasks =  tasks.filter((task)=>{
             return task.id != taskId
             })
@@ -120,7 +134,7 @@ function deleteTask(taskId) {
             showTasks()
             localStorage.setItem("tasks" , JSON.stringify(tasks)) ;
             showDeleteAllBtn () ;
-            alertify.success('تم الحذف بنجاح' ,2.5);
+            alertify.success(   document.querySelector("html").dir == "rtl" ?   'تم الحذف بنجاح' : "Deleted successfully" ,2.5);
     }, function(){});
 }
 
@@ -130,12 +144,23 @@ function deleteTask(taskId) {
 // update task 
 
 function updateTask (taskId){
-    alertify.prompt( ' تعديل مهمة', ' الرجاء تعديل المهمة  ', ''
+    alertify.prompt(  document.querySelector("html").dir == "rtl" ? ' تعديل مهمة' : "update task",
+    document.querySelector("html").dir == "rtl" ?  ' الرجاء تعديل المهمة ' : "please update task", ''
     , function(evt, value) {
-
         if(value == ""){
-            alertify.alert('تنبيه','يجب ان  تدخل اسم المهمة الجديد');
-        }else{
+            if( document.querySelector("html").dir == "rtl"){
+                alertify.alert('تنبيه','يجب ان  تدخل اسم المهمة الجديد');
+            }else{
+                alertify.alert('Alert','You should enter the new task name');
+            }
+           
+        } else if (!isNaN(value)){
+            if( document.querySelector("html").dir == "rtl"){
+                alertify.alert('تنبيه','لا يجب ان يكون اسم المهمة الجديد عبارة عن ارقام فقط ');
+            }else{
+                alertify.alert('Alert','The new task name does not have to be numbers only');
+            }
+        } else{
             let mytask = tasks.filter((task)=>{
                 return task.id == taskId
                 })
@@ -147,7 +172,7 @@ function updateTask (taskId){
                 tasks = [...tasks] ;
                 showTasks()
                 localStorage.setItem("tasks" , JSON.stringify(tasks)) ;
-                alertify.success('تم تعديل المهمة بنجاح' ,2.5);
+                alertify.success(  document.querySelector("html").dir == "rtl" ?  'تم تعديل المهمة بنجاح' : "Task updated successfully" ,2.5);
         }
          }
     , function() {});
@@ -165,10 +190,22 @@ function toggleTaskCompletion(taskId){
     })
     doneTask[0].isDone  = !doneTask[0].isDone ;
     if(doneTask[0].isDone){
-        alertify.success('تم انجاز المهمة' ,2.5);
+        alertify.success(  document.querySelector("html").dir == "rtl" ?  ' رائع! تم انجاز المهمة' : "Great! task has been accomplished" ,2.5);
+        let date = new Date() ;
+        date =  date.toLocaleString() ;
+        doneTask[0].date = date ;
     }else{
-        alertify.success('تم الرجوع عن المهمة' ,2.5);
+        if( document.querySelector("html").dir == "rtl"){
+            alertify.error(  'تم الرجوع عن المهمة'  ,2.5);
+        }else{
+            alertify.error(  'Task has been rolled back'  ,2.5);
+        }
+        let date = new Date() ;
+        date =  date.toLocaleString() ;
+        doneTask[0].date = date ;
+       
     }
+    
      tasks = [...tasks] ;
      showTasks()
     localStorage.setItem("tasks" , JSON.stringify(tasks)) ;
@@ -181,10 +218,10 @@ function toggleTaskCompletion(taskId){
 // delete all tasks
 
 function deleteAllTasks() {
-    alertify.confirm('حذف جميع المهام', ' هل انت متأكد انك تريد حذف  جميع المهام  ؟', function(){
+    alertify.confirm(  document.querySelector("html").dir == "rtl" ?  'حذف جميع المهام' : "delete all tasks",  document.querySelector("html").dir == "rtl" ?  ' هل انت متأكد انك تريد حذف  جميع المهام  ؟' : "Are you sure you want to delete all tasks?", function(){
         tasks.length = 0 ; 
         showTasks();
         showDeleteAllBtn() ;
-        alertify.success('تم الحذف بنجاح' ,2.5);
+        alertify.success( document.querySelector("html").dir == "rtl" ? 'تم الحذف بنجاح' : "Deleted successfully"  ,2.5);
     }, function(){});
 }
