@@ -200,14 +200,16 @@ html[dir="ltr"] .addHere {
 
 
 .alertify-notifier.ajs-right .ajs-message.ajs-visible{
-    left: 268px;
+    left: 240px;
 }
 
 html[dir="ltr"] .alertify-notifier.ajs-right .ajs-message.ajs-visible{
     left: -268px;
 }
 
-
+.alertify-notifier .ajs-message{
+    width: 231px;
+}
 
 @media screen and (max-width : 992px) {
   
