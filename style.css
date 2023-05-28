@@ -93,8 +93,8 @@ header{
     background-color: #fff;
 }
 .circle-btn {
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     border: none;
     display: flex;
@@ -181,7 +181,7 @@ html[dir="ltr"] .task button:first-of-type{
     margin-top: 20px;
 }
 .noTasks{
-    color:  rgb(114, 0, 0);
+    color:  #000;
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -221,6 +221,10 @@ html[dir="ltr"] .alertify-notifier.ajs-right .ajs-message.ajs-visible{
 }
 
 @media screen and (max-width : 768px) {
+    .circle-btn{
+        width: 35px;
+        height: 35px;
+    }
     .tasks-table{
         width: 100%;
         margin: 50px auto;
