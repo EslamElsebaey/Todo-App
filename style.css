@@ -10,6 +10,10 @@ body{
 .alertify .ajs-footer .ajs-buttons.ajs-primary .ajs-button , .alertify .ajs-footer .ajs-buttons.ajs-primary .ajs-button, .alertify input {
     font-family: 'Tajawal', sans-serif;
 }
+.tasks{
+    max-height: 350px;
+    overflow-y: auto;
+}
 .alertify input { 
     font-size: 18px;
 }
